@@ -902,7 +902,48 @@ using binary tree.</p>
 
 <span class="n">l</span> <span class="o">=</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">9</span><span class="p">]</span>
 <span class="n">res</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">dedupe</span><span class="p">(</span><span class="n">l</span><span class="p">))</span>
-<span class="k">assert</span> <span class="n">res</span> <span class="o">==</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">9</span><span class="p">]</span>
+<span class="k">assert</span> <span class="n">res</span> <span class="o">==</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">9</span><span class="p">]</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-56'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-56'>#</a>
+      </div>
+      <h2>11. Naming a Slice</h2>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-57'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-57'>#</a>
+      </div>
+      <p>We can name slice</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span class="n">l</span> <span class="o">=</span> <span class="p">[</span><span class="s">&quot;2&quot;</span><span class="p">,</span><span class="s">&quot;3&quot;</span><span class="p">,</span><span class="s">&quot;I&quot;</span><span class="p">,</span><span class="s">&quot;want&quot;</span><span class="p">,</span><span class="s">&quot;that&quot;</span><span class="p">,</span><span class="s">&quot;9&quot;</span><span class="p">,</span><span class="s">&quot;42&quot;</span><span class="p">]</span>
+<span class="n">I_want_that</span> <span class="o">=</span> <span class="nb">slice</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">5</span><span class="p">)</span>
+<span class="k">assert</span> <span class="n">l</span><span class="p">[</span><span class="n">I_want_that</span><span class="p">]</span> <span class="o">==</span> <span class="p">[</span><span class="s">&quot;I&quot;</span><span class="p">,</span><span class="s">&quot;want&quot;</span><span class="p">,</span><span class="s">&quot;that&quot;</span><span class="p">]</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-58'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-58'>#</a>
+      </div>
+      <p>We can assign a slice</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span class="n">l</span><span class="p">[</span><span class="mi">2</span><span class="p">:</span><span class="mi">5</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="s">&quot;I&quot;</span><span class="p">,</span><span class="s">&quot;disapear&quot;</span><span class="p">]</span>
+<span class="k">assert</span> <span class="n">l</span> <span class="o">==</span> <span class="p">[</span><span class="s">&quot;2&quot;</span><span class="p">,</span><span class="s">&quot;3&quot;</span><span class="p">,</span><span class="s">&quot;I&quot;</span><span class="p">,</span><span class="s">&quot;disapear&quot;</span><span class="p">,</span><span class="s">&quot;9&quot;</span><span class="p">,</span><span class="s">&quot;42&quot;</span><span class="p">]</span>
+<span class="n">l</span><span class="p">[</span><span class="n">I_want_that</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="s">&quot;I want that&quot;</span><span class="p">]</span>
+<span class="k">assert</span> <span class="n">l</span> <span class="o">==</span> <span class="p">[</span><span class="s">&quot;2&quot;</span><span class="p">,</span><span class="s">&quot;3&quot;</span><span class="p">,</span><span class="s">&quot;I want that&quot;</span><span class="p">,</span><span class="s">&quot;42&quot;</span><span class="p">]</span> <span class="c"># the 9 disapear</span>
 
 </pre></div>
     </div>
