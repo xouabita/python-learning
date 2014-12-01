@@ -422,3 +422,19 @@ def dedupe(items):
 l = [4,2,6,2,4,9]
 res = list(dedupe(l))
 assert res == [4,2,6,9]
+
+"""
+11. Naming a Slice
+------------------
+"""
+
+# We can name slice
+l = ["2","3","I","want","that","9","42"]
+I_want_that = slice(2,5)
+assert l[I_want_that] == ["I","want","that"]
+
+# We can assign a slice
+l[2:5] = ["I","disapear"]
+assert l == ["2","3","I","disapear","9","42"]
+l[I_want_that] = ["I want that"]
+assert l == ["2","3","I want that","42"] # the 9 disapear
