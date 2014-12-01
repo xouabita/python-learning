@@ -405,3 +405,20 @@ assert res == { ('x',1) }
 # Make a new dictionary with certain keys removed
 c = {key:a[key] for key in a.keys() - {'z', 'w'}}
 assert c == {'x':1, 'y':2}
+
+"""
+10. Removing Duplicates from a Sequence while Maintaining Order
+---------------------------------------------------------------
+"""
+
+# We can use a set
+def dedupe(items):
+    viewed = set()
+    for item in items:
+        if item not in viewed:
+            yield item
+            viewed.add(item)
+
+l = [4,2,6,2,4,9]
+res = list(dedupe(l))
+assert res == [4,2,6,9]
