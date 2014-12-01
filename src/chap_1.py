@@ -179,7 +179,7 @@ assert d == deque("gheftri")
 d.rotate(-4)
 assert d == deque("trighef")
 
-# we can also fix a limit of size, with maxlen
+# We can also fix a limit of size, with maxlen
 d = deque(maxlen=3)
 d.append(1)
 d.append(2)
@@ -188,3 +188,39 @@ assert d == deque([1,2,3])
 d.append(4)
 d.append(5)
 assert d == deque([3,4,5])
+
+"""
+### Keep the last N-Items
+
+We are searching the pattern "ZLURP" in the lines and we want to keep an history for the N last result
+"""
+
+lines = [
+    "blablablablabla",
+    "blablabZLURPlablabla",
+    "blablablablabla",
+    "blZLURPablablablabla",
+    "blablablZLURPablabla",
+    "blablablablabla",
+    "blablablablabZLURPla",
+    "ZLURPblablablablabla",
+]
+
+# This function do the search
+def search(lines, pattern, history=5):
+    previous_lines = deque(maxlen=history)
+    for line in lines:
+        if pattern in line:
+            # If the pattern is in the line, it yield the line and the last previous line that were searched
+            yield line, previous_lines
+        previous_lines.append(line)
+
+result = [(l,list(plines)) for l,plines in search(lines,"ZLURP")]
+wanted = [
+    ("blablabZLURPlablabla", ["blablablablabla"]),
+    ("blZLURPablablablabla", ["blablablablabla","blablabZLURPlablabla","blablablablabla"]),
+    ("blablablZLURPablabla", ["blablablablabla","blablabZLURPlablabla","blablablablabla","blZLURPablablablabla"]),
+    ("blablablablabZLURPla", ["blablabZLURPlablabla","blablablablabla","blZLURPablablablabla","blablablZLURPablabla","blablablablabla"]),
+    ("ZLURPblablablablabla", ["blablablablabla","blZLURPablablablabla","blablablZLURPablabla","blablablablabla","blablablablabZLURPla"])
+]
+assert result == wanted
