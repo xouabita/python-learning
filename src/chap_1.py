@@ -32,3 +32,13 @@ assert je         == "je"
 assert suis       == "suis"
 assert un         == "un"
 assert tupl       == "tuple"
+
+"""
+Unpacking work every objects that are iterables: string, files, etc...
+You can also skip some value with "_"
+"""
+string = "string"
+s,_,r,_,n,_ = string
+assert s == "s"
+assert r == "r"
+assert n == "n"
