@@ -943,7 +943,40 @@ using binary tree.</p>
       <div class="highlight"><pre><span class="n">l</span><span class="p">[</span><span class="mi">2</span><span class="p">:</span><span class="mi">5</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="s">&quot;I&quot;</span><span class="p">,</span><span class="s">&quot;disapear&quot;</span><span class="p">]</span>
 <span class="k">assert</span> <span class="n">l</span> <span class="o">==</span> <span class="p">[</span><span class="s">&quot;2&quot;</span><span class="p">,</span><span class="s">&quot;3&quot;</span><span class="p">,</span><span class="s">&quot;I&quot;</span><span class="p">,</span><span class="s">&quot;disapear&quot;</span><span class="p">,</span><span class="s">&quot;9&quot;</span><span class="p">,</span><span class="s">&quot;42&quot;</span><span class="p">]</span>
 <span class="n">l</span><span class="p">[</span><span class="n">I_want_that</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="s">&quot;I want that&quot;</span><span class="p">]</span>
-<span class="k">assert</span> <span class="n">l</span> <span class="o">==</span> <span class="p">[</span><span class="s">&quot;2&quot;</span><span class="p">,</span><span class="s">&quot;3&quot;</span><span class="p">,</span><span class="s">&quot;I want that&quot;</span><span class="p">,</span><span class="s">&quot;42&quot;</span><span class="p">]</span> <span class="c"># the 9 disapear</span>
+<span class="k">assert</span> <span class="n">l</span> <span class="o">==</span> <span class="p">[</span><span class="s">&quot;2&quot;</span><span class="p">,</span><span class="s">&quot;3&quot;</span><span class="p">,</span><span class="s">&quot;I want that&quot;</span><span class="p">,</span><span class="s">&quot;42&quot;</span><span class="p">]</span> <span class="c"># the 9 disapear</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-59'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-59'>#</a>
+      </div>
+      <h2>12. Determining the Most Frequently Occurring Items in a Sequence</h2>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-60'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-60'>#</a>
+      </div>
+      <p>By using counter</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span class="kn">from</span> <span class="nn">collections</span> <span class="kn">import</span> <span class="n">Counter</span>
+<span class="n">words</span> <span class="o">=</span> <span class="p">[</span>
+       <span class="s">&#39;look&#39;</span><span class="p">,</span> <span class="s">&#39;into&#39;</span><span class="p">,</span> <span class="s">&#39;my&#39;</span><span class="p">,</span> <span class="s">&#39;eyes&#39;</span><span class="p">,</span> <span class="s">&#39;look&#39;</span><span class="p">,</span> <span class="s">&#39;into&#39;</span><span class="p">,</span> <span class="s">&#39;my&#39;</span><span class="p">,</span> <span class="s">&#39;eyes&#39;</span><span class="p">,</span>
+       <span class="s">&#39;the&#39;</span><span class="p">,</span> <span class="s">&#39;eyes&#39;</span><span class="p">,</span> <span class="s">&#39;the&#39;</span><span class="p">,</span> <span class="s">&#39;eyes&#39;</span><span class="p">,</span> <span class="s">&#39;the&#39;</span><span class="p">,</span> <span class="s">&#39;eyes&#39;</span><span class="p">,</span> <span class="s">&#39;not&#39;</span><span class="p">,</span> <span class="s">&#39;around&#39;</span><span class="p">,</span> <span class="s">&#39;the&#39;</span><span class="p">,</span>
+       <span class="s">&#39;eyes&#39;</span><span class="p">,</span> <span class="s">&quot;don&#39;t&quot;</span><span class="p">,</span> <span class="s">&#39;look&#39;</span><span class="p">,</span> <span class="s">&#39;around&#39;</span><span class="p">,</span> <span class="s">&#39;the&#39;</span><span class="p">,</span> <span class="s">&#39;eyes&#39;</span><span class="p">,</span> <span class="s">&#39;look&#39;</span><span class="p">,</span> <span class="s">&#39;into&#39;</span><span class="p">,</span>
+       <span class="s">&#39;my&#39;</span><span class="p">,</span> <span class="s">&#39;eyes&#39;</span><span class="p">,</span> <span class="s">&quot;you&#39;re&quot;</span><span class="p">,</span> <span class="s">&#39;under&#39;</span>
+<span class="p">]</span>
+<span class="n">word_counts</span> <span class="o">=</span> <span class="n">Counter</span><span class="p">(</span><span class="n">words</span><span class="p">)</span>
+<span class="n">top_three</span> <span class="o">=</span> <span class="n">word_counts</span><span class="o">.</span><span class="n">most_common</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+<span class="k">assert</span> <span class="n">top_three</span> <span class="o">==</span> <span class="p">[(</span><span class="s">&#39;eyes&#39;</span><span class="p">,</span> <span class="mi">8</span><span class="p">),</span> <span class="p">(</span><span class="s">&#39;the&#39;</span><span class="p">,</span> <span class="mi">5</span><span class="p">),</span> <span class="p">(</span><span class="s">&#39;look&#39;</span><span class="p">,</span> <span class="mi">4</span><span class="p">)]</span>
 
 </pre></div>
     </div>
