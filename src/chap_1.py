@@ -503,3 +503,29 @@ wanted_by_alcohol = [
 
 assert beers_by_name == wanted_by_name
 assert beers_by_alcohol == wanted_by_alcohol
+
+"""
+14. Sorting Objects Without Native Comparison Support
+-----------------------------------------------------
+"""
+class Beer:
+    def __init__(self,name,alcohol):
+        self.name = name
+        self.alcohol = alcohol
+    def __repr__(self):
+        return "Beer({},{})".format(self.name,self.alcohol)
+
+beers = [Beer("Guinness",7.5),Beer("Kronenbourg",4.2),Beer("1664",6.1)]
+
+# Use operator attrgetter
+from operator import attrgetter
+
+# Sort beers by name
+res    = sorted(beers, key=attrgetter('name'))
+wanted = "[Beer(1664,6.1), Beer(Guinness,7.5), Beer(Kronenbourg,4.2)]"
+assert str(res) == wanted
+
+# Sort beers by alcohol
+res    = sorted(beers, key=attrgetter('alcohol'))
+wanted = "[Beer(Kronenbourg,4.2), Beer(1664,6.1), Beer(Guinness,7.5)]"
+assert str(res) == wanted
