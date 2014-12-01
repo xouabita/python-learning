@@ -804,7 +804,72 @@ using binary tree.</p>
 <span class="n">min_alcohol</span> <span class="o">=</span> <span class="nb">min</span><span class="p">(</span><span class="nb">zip</span><span class="p">(</span><span class="n">beers_alcohol</span><span class="o">.</span><span class="n">values</span><span class="p">(),</span> <span class="n">beers_alcohol</span><span class="o">.</span><span class="n">keys</span><span class="p">()))[</span><span class="mi">1</span><span class="p">]</span>
 <span class="n">max_alcohol</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="nb">zip</span><span class="p">(</span><span class="n">beers_alcohol</span><span class="o">.</span><span class="n">values</span><span class="p">(),</span> <span class="n">beers_alcohol</span><span class="o">.</span><span class="n">keys</span><span class="p">()))[</span><span class="mi">1</span><span class="p">]</span>
 <span class="k">assert</span> <span class="n">min_alcohol</span> <span class="o">==</span> <span class="s">&quot;Amstel Light&quot;</span>
-<span class="k">assert</span> <span class="n">max_alcohol</span> <span class="o">==</span> <span class="s">&quot;Guinness&quot;</span>
+<span class="k">assert</span> <span class="n">max_alcohol</span> <span class="o">==</span> <span class="s">&quot;Guinness&quot;</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-49'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-49'>#</a>
+      </div>
+      <h2>9. Finding Commonalities in Two Dictionaries</h2>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span class="n">a</span> <span class="o">=</span> <span class="p">{</span> <span class="s">&#39;x&#39;</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span> <span class="s">&#39;y&#39;</span><span class="p">:</span><span class="mi">2</span><span class="p">,</span> <span class="s">&#39;z&#39;</span><span class="p">:</span><span class="mi">3</span> <span class="p">}</span>
+<span class="n">b</span> <span class="o">=</span> <span class="p">{</span> <span class="s">&#39;w&#39;</span><span class="p">:</span><span class="mi">2</span><span class="p">,</span> <span class="s">&#39;x&#39;</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span> <span class="s">&#39;y&#39;</span><span class="p">:</span><span class="mi">3</span> <span class="p">}</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-50'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-50'>#</a>
+      </div>
+      <p>Find keys in common</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span class="n">res</span> <span class="o">=</span> <span class="n">a</span><span class="o">.</span><span class="n">keys</span><span class="p">()</span> <span class="o">&amp;</span> <span class="n">b</span><span class="o">.</span><span class="n">keys</span><span class="p">()</span>
+<span class="k">assert</span> <span class="n">res</span> <span class="o">==</span> <span class="p">{</span><span class="s">&#39;x&#39;</span><span class="p">,</span><span class="s">&#39;y&#39;</span><span class="p">}</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-51'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-51'>#</a>
+      </div>
+      <p>Find keys not in common</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span class="n">res</span> <span class="o">=</span> <span class="n">a</span><span class="o">.</span><span class="n">keys</span><span class="p">()</span> <span class="o">-</span> <span class="n">b</span><span class="o">.</span><span class="n">keys</span><span class="p">()</span>
+<span class="k">assert</span> <span class="n">res</span> <span class="o">==</span> <span class="p">{</span><span class="s">&#39;z&#39;</span><span class="p">}</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-52'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-52'>#</a>
+      </div>
+      <p>Find key/value pairs in common</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span class="n">res</span> <span class="o">=</span> <span class="n">a</span><span class="o">.</span><span class="n">items</span><span class="p">()</span> <span class="o">&amp;</span> <span class="n">b</span><span class="o">.</span><span class="n">items</span><span class="p">()</span>
+<span class="k">assert</span> <span class="n">res</span> <span class="o">==</span> <span class="p">{</span> <span class="p">(</span><span class="s">&#39;x&#39;</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span> <span class="p">}</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-53'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-53'>#</a>
+      </div>
+      <p>Make a new dictionary with certain keys removed</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span class="n">c</span> <span class="o">=</span> <span class="p">{</span><span class="n">key</span><span class="p">:</span><span class="n">a</span><span class="p">[</span><span class="n">key</span><span class="p">]</span> <span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">a</span><span class="o">.</span><span class="n">keys</span><span class="p">()</span> <span class="o">-</span> <span class="p">{</span><span class="s">&#39;z&#39;</span><span class="p">,</span> <span class="s">&#39;w&#39;</span><span class="p">}}</span>
+<span class="k">assert</span> <span class="n">c</span> <span class="o">==</span> <span class="p">{</span><span class="s">&#39;x&#39;</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span> <span class="s">&#39;y&#39;</span><span class="p">:</span><span class="mi">2</span><span class="p">}</span>
 
 </pre></div>
     </div>
