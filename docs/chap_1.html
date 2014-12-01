@@ -717,7 +717,43 @@ using binary tree.</p>
 <span class="k">assert</span> <span class="n">d</span> <span class="o">==</span> <span class="p">{</span>
     <span class="s">&quot;foo&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">],</span>
     <span class="s">&quot;bar&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mi">42</span><span class="p">]</span>
-<span class="p">}</span>
+<span class="p">}</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-44'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-44'>#</a>
+      </div>
+      <h2>7. Keeping Dictionaries in Order</h2>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-45'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-45'>#</a>
+      </div>
+      <p>Use OrderedDict</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span class="kn">from</span> <span class="nn">collections</span> <span class="kn">import</span> <span class="n">OrderedDict</span>
+<span class="n">d</span> <span class="o">=</span> <span class="n">OrderedDict</span><span class="p">()</span>
+<span class="n">d</span><span class="p">[</span><span class="s">&quot;foo&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="n">d</span><span class="p">[</span><span class="s">&quot;bar&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">2</span>
+<span class="n">d</span><span class="p">[</span><span class="s">&quot;baz&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">3</span>
+<span class="n">d</span><span class="p">[</span><span class="s">&quot;lol&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">4</span>
+
+<span class="n">l</span> <span class="o">=</span> <span class="p">[(</span><span class="s">&quot;foo&quot;</span><span class="p">,</span><span class="mi">1</span><span class="p">),(</span><span class="s">&quot;bar&quot;</span><span class="p">,</span><span class="mi">2</span><span class="p">),(</span><span class="s">&quot;baz&quot;</span><span class="p">,</span><span class="mi">3</span><span class="p">),(</span><span class="s">&quot;lol&quot;</span><span class="p">,</span><span class="mi">4</span><span class="p">)]</span>
+<span class="n">i</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">d</span><span class="p">:</span>
+    <span class="k">assert</span> <span class="n">key</span> <span class="o">==</span> <span class="n">l</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
+    <span class="k">assert</span> <span class="n">d</span><span class="p">[</span><span class="n">key</span><span class="p">]</span> <span class="o">==</span> <span class="n">l</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span>
+    <span class="n">i</span><span class="o">+=</span><span class="mi">1</span>
 
 </pre></div>
     </div>
