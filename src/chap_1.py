@@ -140,3 +140,51 @@ i = 0
 for n in gen:
     assert n == i*i
     i+=1
+
+"""
+### Deque
+
+*A double ended queu (or deque) supports adding and removing elements from either end.*
+"""
+
+# A deque work like a list
+from collections import deque
+d = deque("lolibar")
+assert d[0]   == 'l'
+assert d[-1]  == 'r'
+assert len(d) == 7
+d.remove('i')
+assert d == deque("lolbar")
+
+# It can be populated from left or right
+d = deque()
+d.append('r')
+d.extend('ight')
+d.appendleft('t')
+d.extendleft('fel')
+assert d == deque("leftright")
+
+# We can also pop on deque
+t = d.pop()
+l = d.popleft()
+assert t == "t"
+assert l == "l"
+assert d == deque("eftrigh")
+
+# We can do right rotation...
+d.rotate(2)
+assert d == deque("gheftri")
+
+#... and left rotation
+d.rotate(-4)
+assert d == deque("trighef")
+
+# we can also fix a limit of size, with maxlen
+d = deque(maxlen=3)
+d.append(1)
+d.append(2)
+d.append(3)
+assert d == deque([1,2,3])
+d.append(4)
+d.append(5)
+assert d == deque([3,4,5])
