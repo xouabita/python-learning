@@ -976,7 +976,100 @@ using binary tree.</p>
 <span class="p">]</span>
 <span class="n">word_counts</span> <span class="o">=</span> <span class="n">Counter</span><span class="p">(</span><span class="n">words</span><span class="p">)</span>
 <span class="n">top_three</span> <span class="o">=</span> <span class="n">word_counts</span><span class="o">.</span><span class="n">most_common</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
-<span class="k">assert</span> <span class="n">top_three</span> <span class="o">==</span> <span class="p">[(</span><span class="s">&#39;eyes&#39;</span><span class="p">,</span> <span class="mi">8</span><span class="p">),</span> <span class="p">(</span><span class="s">&#39;the&#39;</span><span class="p">,</span> <span class="mi">5</span><span class="p">),</span> <span class="p">(</span><span class="s">&#39;look&#39;</span><span class="p">,</span> <span class="mi">4</span><span class="p">)]</span>
+<span class="k">assert</span> <span class="n">top_three</span> <span class="o">==</span> <span class="p">[(</span><span class="s">&#39;eyes&#39;</span><span class="p">,</span> <span class="mi">8</span><span class="p">),</span> <span class="p">(</span><span class="s">&#39;the&#39;</span><span class="p">,</span> <span class="mi">5</span><span class="p">),</span> <span class="p">(</span><span class="s">&#39;look&#39;</span><span class="p">,</span> <span class="mi">4</span><span class="p">)]</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-61'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-61'>#</a>
+      </div>
+      <h2>13. Sorting a list of dictionary by a common key</h2>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-62'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-62'>#</a>
+      </div>
+      <h3>itemgetter</h3>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span class="kn">from</span> <span class="nn">operator</span> <span class="kn">import</span> <span class="n">itemgetter</span>
+
+<span class="k">assert</span> <span class="n">itemgetter</span><span class="p">(</span><span class="mi">1</span><span class="p">)(</span><span class="s">&#39;ABCDEFG&#39;</span><span class="p">)</span> <span class="o">==</span> <span class="s">&#39;B&#39;</span>
+<span class="k">assert</span> <span class="n">itemgetter</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">5</span><span class="p">)(</span><span class="s">&#39;ABCDEFG&#39;</span><span class="p">)</span> <span class="o">==</span> <span class="p">(</span><span class="s">&#39;B&#39;</span><span class="p">,</span> <span class="s">&#39;D&#39;</span><span class="p">,</span> <span class="s">&#39;F&#39;</span><span class="p">)</span>
+<span class="k">assert</span> <span class="n">itemgetter</span><span class="p">(</span><span class="nb">slice</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="bp">None</span><span class="p">))(</span><span class="s">&#39;ABCDEFG&#39;</span><span class="p">)</span> <span class="o">==</span> <span class="s">&#39;CDEFG&#39;</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-63'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-63'>#</a>
+      </div>
+      <p>Sort these beers</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span class="n">beers</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="p">{</span><span class="s">&quot;brand&quot;</span><span class="p">:</span><span class="s">&quot;Amstel Light&quot;</span><span class="p">,</span> <span class="s">&quot;alcohol&quot;</span><span class="p">:</span><span class="mf">3.5</span><span class="p">},</span>
+    <span class="p">{</span><span class="s">&quot;brand&quot;</span><span class="p">:</span><span class="s">&quot;Heineken&quot;</span><span class="p">,</span> <span class="s">&quot;alcohol&quot;</span><span class="p">:</span><span class="mf">5.4</span><span class="p">},</span>
+    <span class="p">{</span><span class="s">&quot;brand&quot;</span><span class="p">:</span><span class="s">&quot;Heineken Light&quot;</span><span class="p">,</span> <span class="s">&quot;alcohol&quot;</span><span class="p">:</span><span class="mf">3.5</span><span class="p">},</span>
+    <span class="p">{</span><span class="s">&quot;brand&quot;</span><span class="p">:</span><span class="s">&quot;Guinness&quot;</span><span class="p">,</span> <span class="s">&quot;alcohol&quot;</span><span class="p">:</span><span class="mf">7.5</span><span class="p">},</span>
+    <span class="p">{</span><span class="s">&quot;brand&quot;</span><span class="p">:</span><span class="s">&quot;1664&quot;</span><span class="p">,</span> <span class="s">&quot;alcohol&quot;</span><span class="p">:</span><span class="mf">6.1</span><span class="p">},</span>
+    <span class="p">{</span><span class="s">&quot;brand&quot;</span><span class="p">:</span><span class="s">&quot;Kozel Světlý&quot;</span><span class="p">,</span> <span class="s">&quot;alcohol&quot;</span><span class="p">:</span><span class="mi">4</span><span class="p">},</span>
+    <span class="p">{</span><span class="s">&quot;brand&quot;</span><span class="p">:</span><span class="s">&quot;Kronenbourg &quot;</span><span class="p">,</span> <span class="s">&quot;alcohol&quot;</span><span class="p">:</span><span class="mf">4.2</span><span class="p">}</span>
+<span class="p">]</span>
+<span class="n">beers_by_name</span>    <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">beers</span><span class="p">,</span><span class="n">key</span><span class="o">=</span><span class="n">itemgetter</span><span class="p">(</span><span class="s">&#39;brand&#39;</span><span class="p">))</span>
+<span class="n">beers_by_alcohol</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">beers</span><span class="p">,</span><span class="n">key</span><span class="o">=</span><span class="n">itemgetter</span><span class="p">(</span><span class="s">&#39;alcohol&#39;</span><span class="p">))</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-64'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-64'>#</a>
+      </div>
+      <p>By Name</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span class="n">wanted_by_name</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="p">{</span><span class="s">&quot;brand&quot;</span><span class="p">:</span><span class="s">&quot;1664&quot;</span><span class="p">,</span> <span class="s">&quot;alcohol&quot;</span><span class="p">:</span><span class="mf">6.1</span><span class="p">},</span>
+    <span class="p">{</span><span class="s">&quot;brand&quot;</span><span class="p">:</span><span class="s">&quot;Amstel Light&quot;</span><span class="p">,</span> <span class="s">&quot;alcohol&quot;</span><span class="p">:</span><span class="mf">3.5</span><span class="p">},</span>
+    <span class="p">{</span><span class="s">&quot;brand&quot;</span><span class="p">:</span><span class="s">&quot;Guinness&quot;</span><span class="p">,</span> <span class="s">&quot;alcohol&quot;</span><span class="p">:</span><span class="mf">7.5</span><span class="p">},</span>
+    <span class="p">{</span><span class="s">&quot;brand&quot;</span><span class="p">:</span><span class="s">&quot;Heineken&quot;</span><span class="p">,</span> <span class="s">&quot;alcohol&quot;</span><span class="p">:</span><span class="mf">5.4</span><span class="p">},</span>
+    <span class="p">{</span><span class="s">&quot;brand&quot;</span><span class="p">:</span><span class="s">&quot;Heineken Light&quot;</span><span class="p">,</span> <span class="s">&quot;alcohol&quot;</span><span class="p">:</span><span class="mf">3.5</span><span class="p">},</span>
+    <span class="p">{</span><span class="s">&quot;brand&quot;</span><span class="p">:</span><span class="s">&quot;Kozel Světlý&quot;</span><span class="p">,</span> <span class="s">&quot;alcohol&quot;</span><span class="p">:</span><span class="mi">4</span><span class="p">},</span>
+    <span class="p">{</span><span class="s">&quot;brand&quot;</span><span class="p">:</span><span class="s">&quot;Kronenbourg &quot;</span><span class="p">,</span> <span class="s">&quot;alcohol&quot;</span><span class="p">:</span><span class="mf">4.2</span><span class="p">}</span>
+<span class="p">]</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-65'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-65'>#</a>
+      </div>
+      <p>By Alcohol</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span class="n">wanted_by_alcohol</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="p">{</span><span class="s">&quot;brand&quot;</span><span class="p">:</span><span class="s">&quot;Amstel Light&quot;</span><span class="p">,</span> <span class="s">&quot;alcohol&quot;</span><span class="p">:</span><span class="mf">3.5</span><span class="p">},</span>
+    <span class="p">{</span><span class="s">&quot;brand&quot;</span><span class="p">:</span><span class="s">&quot;Heineken Light&quot;</span><span class="p">,</span> <span class="s">&quot;alcohol&quot;</span><span class="p">:</span><span class="mf">3.5</span><span class="p">},</span>
+    <span class="p">{</span><span class="s">&quot;brand&quot;</span><span class="p">:</span><span class="s">&quot;Kozel Světlý&quot;</span><span class="p">,</span> <span class="s">&quot;alcohol&quot;</span><span class="p">:</span><span class="mi">4</span><span class="p">},</span>
+    <span class="p">{</span><span class="s">&quot;brand&quot;</span><span class="p">:</span><span class="s">&quot;Kronenbourg &quot;</span><span class="p">,</span> <span class="s">&quot;alcohol&quot;</span><span class="p">:</span><span class="mf">4.2</span><span class="p">},</span>
+    <span class="p">{</span><span class="s">&quot;brand&quot;</span><span class="p">:</span><span class="s">&quot;Heineken&quot;</span><span class="p">,</span> <span class="s">&quot;alcohol&quot;</span><span class="p">:</span><span class="mf">5.4</span><span class="p">},</span>
+    <span class="p">{</span><span class="s">&quot;brand&quot;</span><span class="p">:</span><span class="s">&quot;1664&quot;</span><span class="p">,</span> <span class="s">&quot;alcohol&quot;</span><span class="p">:</span><span class="mf">6.1</span><span class="p">},</span>
+    <span class="p">{</span><span class="s">&quot;brand&quot;</span><span class="p">:</span><span class="s">&quot;Guinness&quot;</span><span class="p">,</span> <span class="s">&quot;alcohol&quot;</span><span class="p">:</span><span class="mf">7.5</span><span class="p">}</span>
+<span class="p">]</span>
+
+<span class="k">assert</span> <span class="n">beers_by_name</span> <span class="o">==</span> <span class="n">wanted_by_name</span>
+<span class="k">assert</span> <span class="n">beers_by_alcohol</span> <span class="o">==</span> <span class="n">wanted_by_alcohol</span>
 
 </pre></div>
     </div>
