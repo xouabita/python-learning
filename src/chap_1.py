@@ -74,7 +74,9 @@ assert tail == "tail"
 """
 **We can't assign assign two starred expressions:**  
 `head, *queue = [0,1,2,2,1,0]` is not possible
+"""
 
+"""
 3. Keeping Last N-items
 -----------------------
 
