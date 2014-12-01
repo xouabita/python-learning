@@ -460,7 +460,7 @@ You can also skip some value with "_"</p>
       <div class='octowrap'>
         <a class='octothorpe' href='#section-28'>#</a>
       </div>
-      <p>if the pattern is in the line, it yield the line and the last previous line that were searched</p>
+      <p>If the pattern is in the line, it yield the line and the last previous line that were searched</p>
     </div>
     <div class='code'>
       <div class="highlight"><pre>            <span class="k">yield</span> <span class="n">line</span><span class="p">,</span> <span class="n">previous_lines</span>
@@ -474,7 +474,90 @@ You can also skip some value with "_"</p>
     <span class="p">(</span><span class="s">&quot;blablablablabZLURPla&quot;</span><span class="p">,</span> <span class="p">[</span><span class="s">&quot;blablabZLURPlablabla&quot;</span><span class="p">,</span><span class="s">&quot;blablablablabla&quot;</span><span class="p">,</span><span class="s">&quot;blZLURPablablablabla&quot;</span><span class="p">,</span><span class="s">&quot;blablablZLURPablabla&quot;</span><span class="p">,</span><span class="s">&quot;blablablablabla&quot;</span><span class="p">]),</span>
     <span class="p">(</span><span class="s">&quot;ZLURPblablablablabla&quot;</span><span class="p">,</span> <span class="p">[</span><span class="s">&quot;blablablablabla&quot;</span><span class="p">,</span><span class="s">&quot;blZLURPablablablabla&quot;</span><span class="p">,</span><span class="s">&quot;blablablZLURPablabla&quot;</span><span class="p">,</span><span class="s">&quot;blablablablabla&quot;</span><span class="p">,</span><span class="s">&quot;blablablablabZLURPla&quot;</span><span class="p">])</span>
 <span class="p">]</span>
-<span class="k">assert</span> <span class="n">result</span> <span class="o">==</span> <span class="n">wanted</span>
+<span class="k">assert</span> <span class="n">result</span> <span class="o">==</span> <span class="n">wanted</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-29'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-29'>#</a>
+      </div>
+      <h2>4. Finding the Largest or Smallest N Items</h2>
+<h3>heapq</h3>
+<p>The heapq module use the "list" type for adding, deleting elements and keeping the order by
+using binary tree.</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span class="kn">import</span> <span class="nn">heapq</span>
+<span class="n">l</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">heapq</span><span class="o">.</span><span class="n">heappush</span><span class="p">(</span><span class="n">l</span><span class="p">,</span> <span class="mi">69</span><span class="p">)</span>
+<span class="n">heapq</span><span class="o">.</span><span class="n">heappush</span><span class="p">(</span><span class="n">l</span><span class="p">,</span> <span class="mi">42</span><span class="p">)</span>
+<span class="n">heapq</span><span class="o">.</span><span class="n">heappush</span><span class="p">(</span><span class="n">l</span><span class="p">,</span> <span class="mi">99</span><span class="p">)</span>
+<span class="k">assert</span> <span class="n">l</span> <span class="o">==</span> <span class="p">[</span><span class="mi">42</span><span class="p">,</span><span class="mi">69</span><span class="p">,</span><span class="mi">99</span><span class="p">]</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-30'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-30'>#</a>
+      </div>
+      <p>The heapq module is perfect for this problem</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span class="n">nums</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">23</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="o">-</span><span class="mi">4</span><span class="p">,</span> <span class="mi">18</span><span class="p">,</span> <span class="mi">23</span><span class="p">,</span> <span class="mi">42</span><span class="p">,</span> <span class="mi">37</span><span class="p">,</span> <span class="mi">2</span><span class="p">]</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-31'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-31'>#</a>
+      </div>
+      <p>Find the 3 largest elements of the list</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span class="n">largest</span> <span class="o">=</span> <span class="n">heapq</span><span class="o">.</span><span class="n">nlargest</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="n">nums</span><span class="p">)</span>
+<span class="k">assert</span> <span class="n">largest</span> <span class="o">==</span> <span class="p">[</span><span class="mi">42</span><span class="p">,</span><span class="mi">37</span><span class="p">,</span><span class="mi">23</span><span class="p">]</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-32'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-32'>#</a>
+      </div>
+      <p>Find the 3 smallest elements of the list</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span class="n">smallest</span> <span class="o">=</span> <span class="n">heapq</span><span class="o">.</span><span class="n">nsmallest</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="n">nums</span><span class="p">)</span>
+<span class="k">assert</span> <span class="n">smallest</span> <span class="o">==</span> <span class="p">[</span><span class="o">-</span><span class="mi">4</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">]</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-33'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-33'>#</a>
+      </div>
+      <p>It can be also used with complicated data structures</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span class="n">beers</span> <span class="o">=</span> <span class="p">[</span>
+        <span class="p">{</span><span class="s">&quot;brand&quot;</span><span class="p">:</span><span class="s">&quot;Amstel Light&quot;</span><span class="p">,</span> <span class="s">&quot;alcohol&quot;</span><span class="p">:</span><span class="mf">3.5</span><span class="p">},</span>
+        <span class="p">{</span><span class="s">&quot;brand&quot;</span><span class="p">:</span><span class="s">&quot;Heineken&quot;</span><span class="p">,</span> <span class="s">&quot;alcohol&quot;</span><span class="p">:</span><span class="mf">5.4</span><span class="p">},</span>
+        <span class="p">{</span><span class="s">&quot;brand&quot;</span><span class="p">:</span><span class="s">&quot;Heineken Light&quot;</span><span class="p">,</span> <span class="s">&quot;alcohol&quot;</span><span class="p">:</span><span class="mf">3.5</span><span class="p">},</span>
+        <span class="p">{</span><span class="s">&quot;brand&quot;</span><span class="p">:</span><span class="s">&quot;Guinness&quot;</span><span class="p">,</span> <span class="s">&quot;alcohol&quot;</span><span class="p">:</span><span class="mf">7.5</span><span class="p">},</span>
+        <span class="p">{</span><span class="s">&quot;brand&quot;</span><span class="p">:</span><span class="s">&quot;1664&quot;</span><span class="p">,</span> <span class="s">&quot;alcohol&quot;</span><span class="p">:</span><span class="mf">6.1</span><span class="p">},</span>
+        <span class="p">{</span><span class="s">&quot;brand&quot;</span><span class="p">:</span><span class="s">&quot;Kozel Světlý&quot;</span><span class="p">,</span> <span class="s">&quot;alcohol&quot;</span><span class="p">:</span><span class="mi">4</span><span class="p">},</span>
+        <span class="p">{</span><span class="s">&quot;brand&quot;</span><span class="p">:</span><span class="s">&quot;Kronenbourg &quot;</span><span class="p">,</span> <span class="s">&quot;alcohol&quot;</span><span class="p">:</span><span class="mf">4.2</span><span class="p">}</span>
+<span class="p">]</span>
+
+<span class="n">drunk</span> <span class="o">=</span> <span class="n">heapq</span><span class="o">.</span><span class="n">nlargest</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="n">beers</span><span class="p">,</span> <span class="n">key</span><span class="o">=</span><span class="k">lambda</span> <span class="n">s</span><span class="p">:</span> <span class="n">s</span><span class="p">[</span><span class="s">&quot;alcohol&quot;</span><span class="p">])</span>
+<span class="n">sober</span> <span class="o">=</span> <span class="n">heapq</span><span class="o">.</span><span class="n">nsmallest</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="n">beers</span><span class="p">,</span> <span class="n">key</span><span class="o">=</span><span class="k">lambda</span> <span class="n">s</span><span class="p">:</span> <span class="n">s</span><span class="p">[</span><span class="s">&quot;alcohol&quot;</span><span class="p">])</span>
+<span class="k">assert</span> <span class="n">drunk</span> <span class="o">==</span> <span class="p">[{</span><span class="s">&#39;brand&#39;</span><span class="p">:</span> <span class="s">&#39;Guinness&#39;</span><span class="p">,</span> <span class="s">&#39;alcohol&#39;</span><span class="p">:</span> <span class="mf">7.5</span><span class="p">},</span> <span class="p">{</span><span class="s">&#39;brand&#39;</span><span class="p">:</span> <span class="s">&#39;1664&#39;</span><span class="p">,</span> <span class="s">&#39;alcohol&#39;</span><span class="p">:</span> <span class="mf">6.1</span><span class="p">},</span> <span class="p">{</span><span class="s">&#39;brand&#39;</span><span class="p">:</span> <span class="s">&#39;Heineken&#39;</span><span class="p">,</span> <span class="s">&#39;alcohol&#39;</span><span class="p">:</span> <span class="mf">5.4</span><span class="p">}]</span>
+<span class="k">assert</span> <span class="n">sober</span> <span class="o">==</span> <span class="p">[{</span><span class="s">&#39;brand&#39;</span><span class="p">:</span> <span class="s">&#39;Amstel Light&#39;</span><span class="p">,</span> <span class="s">&#39;alcohol&#39;</span><span class="p">:</span> <span class="mf">3.5</span><span class="p">},</span> <span class="p">{</span><span class="s">&#39;brand&#39;</span><span class="p">:</span> <span class="s">&#39;Heineken Light&#39;</span><span class="p">,</span> <span class="s">&#39;alcohol&#39;</span><span class="p">:</span> <span class="mf">3.5</span><span class="p">},</span> <span class="p">{</span><span class="s">&#39;brand&#39;</span><span class="p">:</span> <span class="s">&#39;Kozel Světlý&#39;</span><span class="p">,</span> <span class="s">&#39;alcohol&#39;</span><span class="p">:</span> <span class="mi">4</span><span class="p">}]</span>
 
 </pre></div>
     </div>
