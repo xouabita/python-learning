@@ -292,3 +292,44 @@ assert queue.pop() == "lol"
 assert queue.pop() == "baz"
 assert queue.pop() == "foo"
 assert queue.pop() == "lolibar"
+#
+
+"""
+6. Mapping Keys to Multiple Values in a Dictionary
+--------------------------------------------------
+"""
+
+# We can use `list` if we want to keep the insertion order
+d = {
+    "foo": [2,3],
+    "bar": [42]
+}
+d['foo'].append(1)
+d['bar'].append(42)
+assert d == {
+    "foo": [2,3,1],
+    "bar": [42,42]
+}
+
+# Or use `set` if we want eliminate duplicate
+d = {
+    "foo": {2,3},
+    "bar": {42}
+}
+d["foo"].add(1)
+d["bar"].add(42)
+assert d == {
+    "foo": {1,2,3},
+    "bar": {42}
+}
+
+# We can also use defaultdict for make dict of string
+from collections import defaultdict
+d = defaultdict(list)
+d["foo"].append(2)
+d["foo"].append(3)
+d["bar"].append(42)
+assert d == {
+    "foo": [2,3],
+    "bar": [42]
+}
