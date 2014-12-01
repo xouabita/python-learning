@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="content-type" content="text/html;charset=utf-8">
+  <title>chap_1.py</title>
+  <link rel="stylesheet" href="pycco.css">
+</head>
+<body>
+<div id="background"></div>
+<div id='container'>
+  <div class='section'>
+    <div class='docs'><h1>chap_1.py</h1></div>
+  </div>
+  <div class='clearall'>
+  <div class='section' id='section-0'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-0'>#</a>
+      </div>
+      <h1>Data Structures and Algorithms</h1>
+<h2>1. Unpacking a Sequence into Separate Variables</h2>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-1'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-1'>#</a>
+      </div>
+      <p>We can unpack tuples into sequence by separating variables with a comma</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span class="n">tup</span> <span class="o">=</span> <span class="p">(</span><span class="s">&quot;lol&quot;</span><span class="p">,</span> <span class="mi">42</span><span class="p">)</span>
+<span class="n">lol</span><span class="p">,</span> <span class="n">forty_two</span> <span class="o">=</span> <span class="n">tup</span>
+
+<span class="k">assert</span> <span class="n">lol</span>       <span class="o">==</span> <span class="s">&quot;lol&quot;</span>
+<span class="k">assert</span> <span class="n">forty_two</span> <span class="o">==</span> <span class="mi">42</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-2'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-2'>#</a>
+      </div>
+      <p>We can do the same for a list</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span class="n">data</span> <span class="o">=</span> <span class="p">[</span><span class="s">&quot;salut&quot;</span><span class="p">,</span> <span class="mi">69</span><span class="p">,</span> <span class="bp">True</span><span class="p">,</span> <span class="p">(</span><span class="s">&quot;je&quot;</span><span class="p">,</span><span class="s">&quot;suis&quot;</span><span class="p">,</span><span class="s">&quot;un&quot;</span><span class="p">,</span><span class="s">&quot;tuple&quot;</span><span class="p">)]</span>
+<span class="n">salut</span><span class="p">,</span> <span class="n">sixty_nine</span><span class="p">,</span> <span class="n">true</span><span class="p">,</span> <span class="n">tup</span> <span class="o">=</span> <span class="n">data</span>
+
+<span class="k">assert</span> <span class="n">salut</span>      <span class="o">==</span> <span class="s">&quot;salut&quot;</span>
+<span class="k">assert</span> <span class="n">sixty_nine</span> <span class="o">==</span> <span class="mi">69</span>
+<span class="k">assert</span> <span class="n">true</span>       <span class="o">==</span> <span class="bp">True</span>
+<span class="k">assert</span> <span class="n">tup</span>        <span class="o">==</span> <span class="p">(</span><span class="s">&quot;je&quot;</span><span class="p">,</span><span class="s">&quot;suis&quot;</span><span class="p">,</span><span class="s">&quot;un&quot;</span><span class="p">,</span><span class="s">&quot;tuple&quot;</span><span class="p">)</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-3'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-3'>#</a>
+      </div>
+      <p>We can also directly extract the tuple</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span class="n">salut</span><span class="p">,</span> <span class="n">sixty_nine</span><span class="p">,</span> <span class="n">true</span><span class="p">,</span> <span class="p">(</span><span class="n">je</span><span class="p">,</span><span class="n">suis</span><span class="p">,</span><span class="n">un</span><span class="p">,</span><span class="n">tupl</span><span class="p">)</span> <span class="o">=</span> <span class="n">data</span>
+
+<span class="k">assert</span> <span class="n">salut</span>      <span class="o">==</span> <span class="s">&quot;salut&quot;</span>
+<span class="k">assert</span> <span class="n">sixty_nine</span> <span class="o">==</span> <span class="mi">69</span>
+<span class="k">assert</span> <span class="n">true</span>       <span class="o">==</span> <span class="bp">True</span>
+<span class="k">assert</span> <span class="n">je</span>         <span class="o">==</span> <span class="s">&quot;je&quot;</span>
+<span class="k">assert</span> <span class="n">suis</span>       <span class="o">==</span> <span class="s">&quot;suis&quot;</span>
+<span class="k">assert</span> <span class="n">un</span>         <span class="o">==</span> <span class="s">&quot;un&quot;</span>
+<span class="k">assert</span> <span class="n">tupl</span>       <span class="o">==</span> <span class="s">&quot;tuple&quot;</span>
+
+</pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+</div>
+</body>
