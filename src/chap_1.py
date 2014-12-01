@@ -333,3 +333,23 @@ assert d == {
     "foo": [2,3],
     "bar": [42]
 }
+
+"""
+7. Keeping Dictionaries in Order
+--------------------------------
+"""
+
+# Use OrderedDict
+from collections import OrderedDict
+d = OrderedDict()
+d["foo"] = 1
+d["bar"] = 2
+d["baz"] = 3
+d["lol"] = 4
+
+l = [("foo",1),("bar",2),("baz",3),("lol",4)]
+i = 0
+for key in d:
+    assert key == l[i][0]
+    assert d[key] == l[i][1]
+    i+=1
