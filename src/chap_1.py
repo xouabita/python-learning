@@ -455,3 +455,51 @@ words = [
 word_counts = Counter(words)
 top_three = word_counts.most_common(3)
 assert top_three == [('eyes', 8), ('the', 5), ('look', 4)]
+
+"""
+13. Sorting a list of dictionary by a common key
+------------------------------------------------
+"""
+
+# ### itemgetter
+from operator import itemgetter
+
+assert itemgetter(1)('ABCDEFG') == 'B'
+assert itemgetter(1,3,5)('ABCDEFG') == ('B', 'D', 'F')
+assert itemgetter(slice(2,None))('ABCDEFG') == 'CDEFG'
+
+# Sort these beers
+beers = [
+    {"brand":"Amstel Light", "alcohol":3.5},
+    {"brand":"Heineken", "alcohol":5.4},
+    {"brand":"Heineken Light", "alcohol":3.5},
+    {"brand":"Guinness", "alcohol":7.5},
+    {"brand":"1664", "alcohol":6.1},
+    {"brand":"Kozel Světlý", "alcohol":4},
+    {"brand":"Kronenbourg ", "alcohol":4.2}
+]
+beers_by_name    = sorted(beers,key=itemgetter('brand'))
+beers_by_alcohol = sorted(beers,key=itemgetter('alcohol'))
+# By Name
+wanted_by_name = [
+    {"brand":"1664", "alcohol":6.1},
+    {"brand":"Amstel Light", "alcohol":3.5},
+    {"brand":"Guinness", "alcohol":7.5},
+    {"brand":"Heineken", "alcohol":5.4},
+    {"brand":"Heineken Light", "alcohol":3.5},
+    {"brand":"Kozel Světlý", "alcohol":4},
+    {"brand":"Kronenbourg ", "alcohol":4.2}
+]
+# By Alcohol
+wanted_by_alcohol = [
+    {"brand":"Amstel Light", "alcohol":3.5},
+    {"brand":"Heineken Light", "alcohol":3.5},
+    {"brand":"Kozel Světlý", "alcohol":4},
+    {"brand":"Kronenbourg ", "alcohol":4.2},
+    {"brand":"Heineken", "alcohol":5.4},
+    {"brand":"1664", "alcohol":6.1},
+    {"brand":"Guinness", "alcohol":7.5}
+]
+
+assert beers_by_name == wanted_by_name
+assert beers_by_alcohol == wanted_by_alcohol
