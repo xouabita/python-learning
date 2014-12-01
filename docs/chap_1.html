@@ -557,7 +557,81 @@ using binary tree.</p>
 <span class="n">drunk</span> <span class="o">=</span> <span class="n">heapq</span><span class="o">.</span><span class="n">nlargest</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="n">beers</span><span class="p">,</span> <span class="n">key</span><span class="o">=</span><span class="k">lambda</span> <span class="n">s</span><span class="p">:</span> <span class="n">s</span><span class="p">[</span><span class="s">&quot;alcohol&quot;</span><span class="p">])</span>
 <span class="n">sober</span> <span class="o">=</span> <span class="n">heapq</span><span class="o">.</span><span class="n">nsmallest</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="n">beers</span><span class="p">,</span> <span class="n">key</span><span class="o">=</span><span class="k">lambda</span> <span class="n">s</span><span class="p">:</span> <span class="n">s</span><span class="p">[</span><span class="s">&quot;alcohol&quot;</span><span class="p">])</span>
 <span class="k">assert</span> <span class="n">drunk</span> <span class="o">==</span> <span class="p">[{</span><span class="s">&#39;brand&#39;</span><span class="p">:</span> <span class="s">&#39;Guinness&#39;</span><span class="p">,</span> <span class="s">&#39;alcohol&#39;</span><span class="p">:</span> <span class="mf">7.5</span><span class="p">},</span> <span class="p">{</span><span class="s">&#39;brand&#39;</span><span class="p">:</span> <span class="s">&#39;1664&#39;</span><span class="p">,</span> <span class="s">&#39;alcohol&#39;</span><span class="p">:</span> <span class="mf">6.1</span><span class="p">},</span> <span class="p">{</span><span class="s">&#39;brand&#39;</span><span class="p">:</span> <span class="s">&#39;Heineken&#39;</span><span class="p">,</span> <span class="s">&#39;alcohol&#39;</span><span class="p">:</span> <span class="mf">5.4</span><span class="p">}]</span>
-<span class="k">assert</span> <span class="n">sober</span> <span class="o">==</span> <span class="p">[{</span><span class="s">&#39;brand&#39;</span><span class="p">:</span> <span class="s">&#39;Amstel Light&#39;</span><span class="p">,</span> <span class="s">&#39;alcohol&#39;</span><span class="p">:</span> <span class="mf">3.5</span><span class="p">},</span> <span class="p">{</span><span class="s">&#39;brand&#39;</span><span class="p">:</span> <span class="s">&#39;Heineken Light&#39;</span><span class="p">,</span> <span class="s">&#39;alcohol&#39;</span><span class="p">:</span> <span class="mf">3.5</span><span class="p">},</span> <span class="p">{</span><span class="s">&#39;brand&#39;</span><span class="p">:</span> <span class="s">&#39;Kozel Světlý&#39;</span><span class="p">,</span> <span class="s">&#39;alcohol&#39;</span><span class="p">:</span> <span class="mi">4</span><span class="p">}]</span>
+<span class="k">assert</span> <span class="n">sober</span> <span class="o">==</span> <span class="p">[{</span><span class="s">&#39;brand&#39;</span><span class="p">:</span> <span class="s">&#39;Amstel Light&#39;</span><span class="p">,</span> <span class="s">&#39;alcohol&#39;</span><span class="p">:</span> <span class="mf">3.5</span><span class="p">},</span> <span class="p">{</span><span class="s">&#39;brand&#39;</span><span class="p">:</span> <span class="s">&#39;Heineken Light&#39;</span><span class="p">,</span> <span class="s">&#39;alcohol&#39;</span><span class="p">:</span> <span class="mf">3.5</span><span class="p">},</span> <span class="p">{</span><span class="s">&#39;brand&#39;</span><span class="p">:</span> <span class="s">&#39;Kozel Světlý&#39;</span><span class="p">,</span> <span class="s">&#39;alcohol&#39;</span><span class="p">:</span> <span class="mi">4</span><span class="p">}]</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-34'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-34'>#</a>
+      </div>
+      <h2>5. Implementing a Priority Queue</h2>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-35'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-35'>#</a>
+      </div>
+      
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span class="k">class</span> <span class="nc">PriorityQueue</span><span class="p">:</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-36'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-36'>#</a>
+      </div>
+      
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre>    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_queue</span> <span class="o">=</span> <span class="p">[]</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-37'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-37'>#</a>
+      </div>
+      
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre>    <span class="k">def</span> <span class="nf">push</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">item</span><span class="p">,</span> <span class="n">priority</span><span class="p">):</span>
+        <span class="n">heapq</span><span class="o">.</span><span class="n">heappush</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_queue</span><span class="p">,</span> <span class="p">(</span><span class="o">-</span><span class="n">priority</span><span class="p">,</span><span class="n">item</span><span class="p">))</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-38'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-38'>#</a>
+      </div>
+      
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre>    <span class="k">def</span> <span class="nf">pop</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">heapq</span><span class="o">.</span><span class="n">heappop</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_queue</span><span class="p">)[</span><span class="mi">1</span><span class="p">]</span>
+
+<span class="n">queue</span> <span class="o">=</span> <span class="n">PriorityQueue</span><span class="p">()</span>
+<span class="n">queue</span><span class="o">.</span><span class="n">push</span><span class="p">(</span><span class="s">&quot;lol&quot;</span><span class="p">,</span> <span class="mi">78</span><span class="p">)</span>
+<span class="n">queue</span><span class="o">.</span><span class="n">push</span><span class="p">(</span><span class="s">&quot;foo&quot;</span><span class="p">,</span> <span class="mi">34</span><span class="p">)</span>
+<span class="n">queue</span><span class="o">.</span><span class="n">push</span><span class="p">(</span><span class="s">&quot;baz&quot;</span><span class="p">,</span> <span class="mi">42</span><span class="p">)</span>
+<span class="n">queue</span><span class="o">.</span><span class="n">push</span><span class="p">(</span><span class="s">&quot;lolibar&quot;</span><span class="p">,</span> <span class="mi">34</span><span class="p">)</span>
+
+<span class="k">assert</span> <span class="n">queue</span><span class="o">.</span><span class="n">pop</span><span class="p">()</span> <span class="o">==</span> <span class="s">&quot;lol&quot;</span>
+<span class="k">assert</span> <span class="n">queue</span><span class="o">.</span><span class="n">pop</span><span class="p">()</span> <span class="o">==</span> <span class="s">&quot;baz&quot;</span>
+<span class="k">assert</span> <span class="n">queue</span><span class="o">.</span><span class="n">pop</span><span class="p">()</span> <span class="o">==</span> <span class="s">&quot;foo&quot;</span>
+<span class="k">assert</span> <span class="n">queue</span><span class="o">.</span><span class="n">pop</span><span class="p">()</span> <span class="o">==</span> <span class="s">&quot;lolibar&quot;</span>
 
 </pre></div>
     </div>
