@@ -353,3 +353,31 @@ for key in d:
     assert key == l[i][0]
     assert d[key] == l[i][1]
     i+=1
+
+"""
+8. Calculating with Dictionaries
+--------------------------------
+"""
+
+#### Zip
+
+l1 = ["foo","bar","lol"]
+l2 = [1,2,3]
+l  = list(zip(l1,l2))
+assert l == [("foo",1),("bar",2),("lol",3)]
+
+
+# Use zip to invert key and value
+beers_alcohol = {
+    "Amstel Light":3.5,
+    "Heineken":5.4,
+    "Heineken Light":3.5,
+    "Guinness":7.5,
+    "1664":6.1,
+    "Kozel Světlý":4,
+    "Kronenbourg ":4.2
+}
+min_alcohol = min(zip(beers_alcohol.values(), beers_alcohol.keys()))[1]
+max_alcohol = max(zip(beers_alcohol.values(), beers_alcohol.keys()))[1]
+assert min_alcohol == "Amstel Light"
+assert max_alcohol == "Guinness"
