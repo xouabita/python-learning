@@ -224,3 +224,47 @@ wanted = [
     ("ZLURPblablablablabla", ["blablablablabla","blZLURPablablablabla","blablablZLURPablabla","blablablablabla","blablablablabZLURPla"])
 ]
 assert result == wanted
+
+"""
+4. Finding the Largest or Smallest N Items
+------------------------------------------
+
+### heapq
+
+The heapq module use the "list" type for adding, deleting elements and keeping the order by
+using binary tree.
+"""
+import heapq
+l = []
+heapq.heappush(l, 69)
+heapq.heappush(l, 42)
+heapq.heappush(l, 99)
+assert l == [42,69,99]
+
+# The heapq module is perfect for this problem
+
+nums = [1, 8, 2, 23, 7, -4, 18, 23, 42, 37, 2]
+
+# Find the 3 largest elements of the list
+largest = heapq.nlargest(3,nums)
+assert largest == [42,37,23]
+
+# Find the 3 smallest elements of the list
+smallest = heapq.nsmallest(3,nums)
+assert smallest == [-4,1,2]
+
+# It can be also used with complicated data structures
+beers = [
+        {"brand":"Amstel Light", "alcohol":3.5},
+        {"brand":"Heineken", "alcohol":5.4},
+        {"brand":"Heineken Light", "alcohol":3.5},
+        {"brand":"Guinness", "alcohol":7.5},
+        {"brand":"1664", "alcohol":6.1},
+        {"brand":"Kozel Světlý", "alcohol":4},
+        {"brand":"Kronenbourg ", "alcohol":4.2}
+]
+
+drunk = heapq.nlargest(3, beers, key=lambda s: s["alcohol"])
+sober = heapq.nsmallest(3, beers, key=lambda s: s["alcohol"])
+assert drunk == [{'brand': 'Guinness', 'alcohol': 7.5}, {'brand': '1664', 'alcohol': 6.1}, {'brand': 'Heineken', 'alcohol': 5.4}]
+assert sober == [{'brand': 'Amstel Light', 'alcohol': 3.5}, {'brand': 'Heineken Light', 'alcohol': 3.5}, {'brand': 'Kozel Světlý', 'alcohol': 4}]
