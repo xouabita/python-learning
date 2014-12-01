@@ -5,7 +5,7 @@ Learn python w/ the Python Cookbook
 
 Todos:
 
-- [ ] Data Structures and Algorithms [WIP] :warning:
+- [ ] [Data Structures and Algorithms](https://cdn.rawgit.com/xouabita/python-learning/master/docs/chap_1.html) [WIP] :warning:
 - [ ] Strings and Texts
 - [ ] Number Dates and Times
 - [ ] Iterators and Generators
