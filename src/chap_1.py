@@ -268,3 +268,27 @@ drunk = heapq.nlargest(3, beers, key=lambda s: s["alcohol"])
 sober = heapq.nsmallest(3, beers, key=lambda s: s["alcohol"])
 assert drunk == [{'brand': 'Guinness', 'alcohol': 7.5}, {'brand': '1664', 'alcohol': 6.1}, {'brand': 'Heineken', 'alcohol': 5.4}]
 assert sober == [{'brand': 'Amstel Light', 'alcohol': 3.5}, {'brand': 'Heineken Light', 'alcohol': 3.5}, {'brand': 'Kozel Světlý', 'alcohol': 4}]
+
+"""
+5. Implementing a Priority Queue
+--------------------------------
+"""
+
+class PriorityQueue:
+    def __init__(self):
+        self._queue = []
+    def push(self, item, priority):
+        heapq.heappush(self._queue, (-priority,item))
+    def pop(self):
+        return heapq.heappop(self._queue)[1]
+
+queue = PriorityQueue()
+queue.push("lol", 78)
+queue.push("foo", 34)
+queue.push("baz", 42)
+queue.push("lolibar", 34)
+
+assert queue.pop() == "lol"
+assert queue.pop() == "baz"
+assert queue.pop() == "foo"
+assert queue.pop() == "lolibar"
