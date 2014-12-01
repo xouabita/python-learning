@@ -438,3 +438,20 @@ l[2:5] = ["I","disapear"]
 assert l == ["2","3","I","disapear","9","42"]
 l[I_want_that] = ["I want that"]
 assert l == ["2","3","I want that","42"] # the 9 disapear
+
+"""
+12. Determining the Most Frequently Occurring Items in a Sequence
+-----------------------------------------------------------------
+"""
+
+# By using counter
+from collections import Counter
+words = [
+       'look', 'into', 'my', 'eyes', 'look', 'into', 'my', 'eyes',
+       'the', 'eyes', 'the', 'eyes', 'the', 'eyes', 'not', 'around', 'the',
+       'eyes', "don't", 'look', 'around', 'the', 'eyes', 'look', 'into',
+       'my', 'eyes', "you're", 'under'
+]
+word_counts = Counter(words)
+top_three = word_counts.most_common(3)
+assert top_three == [('eyes', 8), ('the', 5), ('look', 4)]
