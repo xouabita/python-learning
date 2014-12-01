@@ -71,5 +71,70 @@ assert head == "head"
 assert mid  == ["m","i","d"]
 assert tail == "tail"
 
-# **We can't assign assign two starred expressions:**  
-# `head, *queue = [0,1,2,2,1,0]` is not possible
+"""
+**We can't assign assign two starred expressions:**  
+`head, *queue = [0,1,2,2,1,0]` is not possible
+
+3. Keeping Last N-items
+-----------------------
+
+### Yield and generators
+"""
+
+# #### A simple list
+lst = [0,1,4]
+assert lst[0] == 0
+assert lst[1] == 1
+assert lst[2] == 4
+
+"""
+#### List in intension
+
+Basic way:
+"""
+nums = [0,1,2]
+lst  = []
+for n in nums:
+    lst.append(n*n)
+assert lst[0] == 0
+assert lst[1] == 1
+assert lst[2] == 4
+
+# With intention
+lst = [n*n for n in nums]
+assert lst[0] == 0
+assert lst[1] == 1
+assert lst[2] == 4
+
+# We can filter w/ intention
+nums = [0,1,2,3,4,5,6]
+even = [n for n in nums if n%2 == 0]
+assert even == [0,2,4,6]
+
+
+# #### Generators
+gen = (n*n for n in range(3))
+assert str(type(gen)) == "<class 'generator'>"
+i = 0
+for n in gen:
+    assert n == i*i
+    i+=1
+# We can't use a generator a second time
+
+"""
+#### Yield keyword
+"""
+
+# We can also create a generator with the yield keyword
+def makeGen():
+    nums = range(3)
+    for n in nums:
+        yield i*i
+
+gen = makeGen()
+
+assert str(type(gen)) == "<class 'generator'>"
+i = 0
+for n in gen:
+    assert n == i*i
+    i+=1
