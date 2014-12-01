@@ -42,3 +42,34 @@ s,_,r,_,n,_ = string
 assert s == "s"
 assert r == "r"
 assert n == "n"
+
+"""
+2. Unpacking Elements from Iterables of Arbitrary Length
+--------------------------------------------------------
+
+We can use "*" to unpack more than one value
+"""
+record = ("Jean-Mi","jean.mi@wanadoo.fr", "0132101010", "+42777890910")
+name, mail, *phones = record
+assert name   == "Jean-Mi"
+assert mail   == "jean.mi@wanadoo.fr"
+assert phones == ["0132101010", "+42777890910"]
+
+# Get the head
+head, *tail = ["head", "t", "a", "i", "l"]
+assert head == "head"
+assert tail == ["t","a","i","l"]
+
+# Get the tail
+*head, tail = ["h","e","a","d","tail"]
+assert head == ["h","e","a","d"]
+assert tail == "tail"
+
+# Get the middle
+head, *mid, tail = ["head","m","i","d","tail"]
+assert head == "head"
+assert mid  == ["m","i","d"]
+assert tail == "tail"
+
+# **We can't assign assign two starred expressions:**  
+# `head, *queue = [0,1,2,2,1,0]` is not possible
