@@ -381,3 +381,27 @@ min_alcohol = min(zip(beers_alcohol.values(), beers_alcohol.keys()))[1]
 max_alcohol = max(zip(beers_alcohol.values(), beers_alcohol.keys()))[1]
 assert min_alcohol == "Amstel Light"
 assert max_alcohol == "Guinness"
+
+"""
+9. Finding Commonalities in Two Dictionaries
+--------------------------------------------
+"""
+
+a = { 'x':1, 'y':2, 'z':3 }
+b = { 'w':2, 'x':1, 'y':3 }
+
+# Find keys in common
+res = a.keys() & b.keys()
+assert res == {'x','y'}
+
+# Find keys not in common
+res = a.keys() - b.keys()
+assert res == {'z'}
+
+# Find key/value pairs in common
+res = a.items() & b.items()
+assert res == { ('x',1) }
+
+# Make a new dictionary with certain keys removed
+c = {key:a[key] for key in a.keys() - {'z', 'w'}}
+assert c == {'x':1, 'y':2}
