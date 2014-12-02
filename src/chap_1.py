@@ -576,3 +576,43 @@ assert by_date == {
       { 'address':'4801 N BROADWAY', 'date':'07/01/2012' }
    ]
 }
+
+"""
+16. Filtering Sequence Elements
+-------------------------------
+"""
+
+# Using a list comprehension
+my_list = [3,6,7,9,2,4,69,42]
+odd = [n for n in my_list if n % 2 == 1]
+even = [n for n in my_list if n % 2 == 0]
+
+assert odd == [3,7,9,69]
+assert even == [6,2,4,42]
+
+# If the result is huge, we can use generators
+odd_gen = (n for n in my_list if n % 2 == 1)
+i = 0
+for n in odd_gen:
+    assert odd[i] == n
+    i+=1
+
+# If the filtering criteria can't be easily expressed, we can use
+# the built-in `filter()`
+values = ['1','2','-3', '-', '4', 'N/A', '5']
+# This function determine if the val is int or not
+def is_int(val):
+    try:
+        x = int(val)
+        return True
+    except ValueError:
+        return False
+ints_filtered = filter(is_int, values)
+# `filter()` creates an iterator, so it's necessary to use `list()` if you want a
+# list as result
+ints_list = list(ints_filtered)
+assert ints_list == ['1', '2', '-3', '4', '5']
+
+# But a list comprehension work also for this example
+ints_compr = [n for n in values if is_int(n)]
+assert ints_compr == ints_list
