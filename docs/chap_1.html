@@ -1159,9 +1159,7 @@ using binary tree.</p>
       <div class='octowrap'>
         <a class='octothorpe' href='#section-72'>#</a>
       </div>
-      <ol>
-<li>Grouping Records Together Based on a Field</li>
-</ol>
+      <h2>15. Grouping Records Together Based on a Field</h2>
     </div>
     <div class='code'>
       <div class="highlight"><pre></pre></div>
@@ -1243,7 +1241,110 @@ using binary tree.</p>
       <span class="p">{</span> <span class="s">&#39;address&#39;</span><span class="p">:</span><span class="s">&#39;5412 N CLARK&#39;</span><span class="p">,</span> <span class="s">&#39;date&#39;</span><span class="p">:</span><span class="s">&#39;07/01/2012&#39;</span> <span class="p">},</span>
       <span class="p">{</span> <span class="s">&#39;address&#39;</span><span class="p">:</span><span class="s">&#39;4801 N BROADWAY&#39;</span><span class="p">,</span> <span class="s">&#39;date&#39;</span><span class="p">:</span><span class="s">&#39;07/01/2012&#39;</span> <span class="p">}</span>
    <span class="p">]</span>
-<span class="p">}</span>
+<span class="p">}</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-77'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-77'>#</a>
+      </div>
+      <h2>16. Filtering Sequence Elements</h2>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-78'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-78'>#</a>
+      </div>
+      <p>Using a list comprehension</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span class="n">my_list</span> <span class="o">=</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="mi">9</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">69</span><span class="p">,</span><span class="mi">42</span><span class="p">]</span>
+<span class="n">odd</span> <span class="o">=</span> <span class="p">[</span><span class="n">n</span> <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="n">my_list</span> <span class="k">if</span> <span class="n">n</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">1</span><span class="p">]</span>
+<span class="n">even</span> <span class="o">=</span> <span class="p">[</span><span class="n">n</span> <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="n">my_list</span> <span class="k">if</span> <span class="n">n</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span><span class="p">]</span>
+
+<span class="k">assert</span> <span class="n">odd</span> <span class="o">==</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="mi">9</span><span class="p">,</span><span class="mi">69</span><span class="p">]</span>
+<span class="k">assert</span> <span class="n">even</span> <span class="o">==</span> <span class="p">[</span><span class="mi">6</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">42</span><span class="p">]</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-79'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-79'>#</a>
+      </div>
+      <p>If the result is huge, we can use generators</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span class="n">odd_gen</span> <span class="o">=</span> <span class="p">(</span><span class="n">n</span> <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="n">my_list</span> <span class="k">if</span> <span class="n">n</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">1</span><span class="p">)</span>
+<span class="n">i</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="n">odd_gen</span><span class="p">:</span>
+    <span class="k">assert</span> <span class="n">odd</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">==</span> <span class="n">n</span>
+    <span class="n">i</span><span class="o">+=</span><span class="mi">1</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-80'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-80'>#</a>
+      </div>
+      <p>If the filtering criteria can't be easily expressed, we can use
+the built-in <code>filter()</code></p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span class="n">values</span> <span class="o">=</span> <span class="p">[</span><span class="s">&#39;1&#39;</span><span class="p">,</span><span class="s">&#39;2&#39;</span><span class="p">,</span><span class="s">&#39;-3&#39;</span><span class="p">,</span> <span class="s">&#39;-&#39;</span><span class="p">,</span> <span class="s">&#39;4&#39;</span><span class="p">,</span> <span class="s">&#39;N/A&#39;</span><span class="p">,</span> <span class="s">&#39;5&#39;</span><span class="p">]</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-81'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-81'>#</a>
+      </div>
+      <p>This function determine if the val is int or not</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span class="k">def</span> <span class="nf">is_int</span><span class="p">(</span><span class="n">val</span><span class="p">):</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">x</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">val</span><span class="p">)</span>
+        <span class="k">return</span> <span class="bp">True</span>
+    <span class="k">except</span> <span class="ne">ValueError</span><span class="p">:</span>
+        <span class="k">return</span> <span class="bp">False</span>
+<span class="n">ints_filtered</span> <span class="o">=</span> <span class="nb">filter</span><span class="p">(</span><span class="n">is_int</span><span class="p">,</span> <span class="n">values</span><span class="p">)</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-82'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-82'>#</a>
+      </div>
+      <p><code>filter()</code> creates an iterator, so it's necessary to use <code>list()</code> if you want a
+list as result</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span class="n">ints_list</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">ints_filtered</span><span class="p">)</span>
+<span class="k">assert</span> <span class="n">ints_list</span> <span class="o">==</span> <span class="p">[</span><span class="s">&#39;1&#39;</span><span class="p">,</span> <span class="s">&#39;2&#39;</span><span class="p">,</span> <span class="s">&#39;-3&#39;</span><span class="p">,</span> <span class="s">&#39;4&#39;</span><span class="p">,</span> <span class="s">&#39;5&#39;</span><span class="p">]</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-83'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-83'>#</a>
+      </div>
+      <p>But a list comprehension work also for this example</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span class="n">ints_compr</span> <span class="o">=</span> <span class="p">[</span><span class="n">n</span> <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="n">values</span> <span class="k">if</span> <span class="n">is_int</span><span class="p">(</span><span class="n">n</span><span class="p">)]</span>
+<span class="k">assert</span> <span class="n">ints_compr</span> <span class="o">==</span> <span class="n">ints_list</span>
 
 </pre></div>
     </div>
