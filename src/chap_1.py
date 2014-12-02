@@ -659,3 +659,13 @@ try:
 except AttributeError:
     sub = sub._replace(addr='xouabita@gmail.com')
 assert sub.addr == 'xouabita@gmail.com'
+
+"""
+19. Transforming and Reducing Data at the same time
+---------------------------------------------------
+"""
+
+# By using a generator expression argument
+nums = [1,2,3,4,5]
+s = sum(x*x for x in nums)
+assert s == 1*1 + 2*2 + 3*3 + 4*4 + 5*5
