@@ -12,8 +12,8 @@ make doc # generate docs
 
 ### Todos:
 
-- [ ] [Data Structures and Algorithms](https://rawgit.com/xouabita/python-learning/master/docs/chap_1.html) [WIP] :warning:
-- [ ] Strings and Texts
+- [x] [Data Structures and Algorithms](https://rawgit.com/xouabita/python-learning/master/docs/chap_1.html) 
+- [ ] Strings and Texts [WIP] :warning:
 - [ ] Number Dates and Times
 - [ ] Iterators and Generators
 - [ ] Files and I/O
