@@ -532,6 +532,7 @@ assert str(res) == wanted
 
 """
 15. Grouping Records Together Based on a Field
+----------------------------------------------
 """
 
 # Group the address with the same date
