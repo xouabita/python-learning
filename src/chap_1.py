@@ -669,3 +669,22 @@ assert sub.addr == 'xouabita@gmail.com'
 nums = [1,2,3,4,5]
 s = sum(x*x for x in nums)
 assert s == 1*1 + 2*2 + 3*3 + 4*4 + 5*5
+
+"""
+20. Combining Multiple Mapping into a Single Mapping
+----------------------------------------------------
+"""
+
+# By using ChainMap
+from collections import ChainMap
+a = {'x': 1, 'z': 3}
+b = {'y': 2, 'z': 4}
+c = ChainMap(a,b)
+
+assert c['x'] == 1
+assert c['y'] == 2
+
+# For the key `z`, ChainMap take the value from the first dict
+assert c['z'] == 3
+c = ChainMap(b,a)
+assert c['z'] == 4
