@@ -1436,8 +1436,34 @@ list as result</p>
       <div class="highlight"><pre><span class="k">try</span><span class="p">:</span>
     <span class="n">sub</span><span class="o">.</span><span class="n">addr</span> <span class="o">=</span> <span class="s">&#39;xouabita@gmail.com&#39;</span>
 <span class="k">except</span> <span class="ne">AttributeError</span><span class="p">:</span>
-    <span class="n">sub</span> <span class="o">=</span> <span class="n">sub</span><span class="o">.</span><span class="n">_replace</span><span class="p">(</span><span class="n">addr</span><span class="p">,</span><span class="s">&#39;xouabita@gmail.com&#39;</span><span class="p">)</span>
-<span class="k">assert</span> <span class="n">sub</span><span class="o">.</span><span class="n">addr</span> <span class="o">==</span> <span class="s">&#39;xouabita@gmail.com&#39;</span>
+    <span class="n">sub</span> <span class="o">=</span> <span class="n">sub</span><span class="o">.</span><span class="n">_replace</span><span class="p">(</span><span class="n">addr</span><span class="o">=</span><span class="s">&#39;xouabita@gmail.com&#39;</span><span class="p">)</span>
+<span class="k">assert</span> <span class="n">sub</span><span class="o">.</span><span class="n">addr</span> <span class="o">==</span> <span class="s">&#39;xouabita@gmail.com&#39;</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-90'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-90'>#</a>
+      </div>
+      <h2>19. Transforming and Reducing Data at the same time</h2>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-91'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-91'>#</a>
+      </div>
+      <p>By using a generator expression argument</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span class="n">nums</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">]</span>
+<span class="n">s</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">(</span><span class="n">x</span> <span class="o">*</span> <span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">nums</span><span class="p">)</span>
+<span class="k">assert</span> <span class="n">s</span> <span class="o">==</span> <span class="mi">1</span><span class="o">*</span><span class="mi">1</span> <span class="o">+</span> <span class="mi">2</span><span class="o">*</span><span class="mi">2</span> <span class="o">+</span> <span class="mi">3</span><span class="o">*</span><span class="mi">3</span> <span class="o">+</span> <span class="mi">4</span><span class="o">*</span><span class="mi">4</span> <span class="o">+</span> <span class="mi">5</span><span class="o">*</span><span class="mi">5</span>
 
 </pre></div>
     </div>
