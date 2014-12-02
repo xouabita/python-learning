@@ -1344,7 +1344,56 @@ list as result</p>
     </div>
     <div class='code'>
       <div class="highlight"><pre><span class="n">ints_compr</span> <span class="o">=</span> <span class="p">[</span><span class="n">n</span> <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="n">values</span> <span class="k">if</span> <span class="n">is_int</span><span class="p">(</span><span class="n">n</span><span class="p">)]</span>
-<span class="k">assert</span> <span class="n">ints_compr</span> <span class="o">==</span> <span class="n">ints_list</span>
+<span class="k">assert</span> <span class="n">ints_compr</span> <span class="o">==</span> <span class="n">ints_list</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-84'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-84'>#</a>
+      </div>
+      <h2>17. Extracting a Subset of a Dictionary</h2>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-85'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-85'>#</a>
+      </div>
+      <p>We want to make a subset for alcohol &gt; 5°</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span class="n">beers</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s">&quot;Amstel Light&quot;</span><span class="p">:</span><span class="mf">3.5</span><span class="p">,</span>
+    <span class="s">&quot;Heineken&quot;</span><span class="p">:</span><span class="mf">5.4</span><span class="p">,</span>
+    <span class="s">&quot;Heineken Light&quot;</span><span class="p">:</span><span class="mf">3.5</span><span class="p">,</span>
+    <span class="s">&quot;Guinness&quot;</span><span class="p">:</span><span class="mf">7.5</span><span class="p">,</span>
+    <span class="s">&quot;1664&quot;</span><span class="p">:</span><span class="mf">6.1</span><span class="p">,</span>
+    <span class="s">&quot;Kozel Světlý&quot;</span><span class="p">:</span><span class="mi">4</span><span class="p">,</span>
+    <span class="s">&quot;Kronenbourg &quot;</span><span class="p">:</span><span class="mf">4.2</span>
+<span class="p">}</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-86'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-86'>#</a>
+      </div>
+      <p>We can use dictionary comprehension</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span class="n">sup_5</span> <span class="o">=</span> <span class="p">{</span> <span class="n">key</span><span class="p">:</span><span class="n">value</span> <span class="k">for</span> <span class="n">key</span><span class="p">,</span> <span class="n">value</span> <span class="ow">in</span> <span class="n">beers</span><span class="o">.</span><span class="n">items</span><span class="p">()</span> <span class="k">if</span> <span class="n">value</span> <span class="o">&gt;</span> <span class="mi">5</span> <span class="p">}</span>
+<span class="k">assert</span> <span class="n">sup_5</span> <span class="o">==</span> <span class="p">{</span>
+    <span class="s">&quot;Heineken&quot;</span><span class="p">:</span> <span class="mf">5.4</span><span class="p">,</span>
+    <span class="s">&quot;Guinness&quot;</span><span class="p">:</span> <span class="mf">7.5</span><span class="p">,</span>
+    <span class="s">&quot;1664&quot;</span>    <span class="p">:</span> <span class="mf">6.1</span><span class="p">,</span>
+<span class="p">}</span>
 
 </pre></div>
     </div>
