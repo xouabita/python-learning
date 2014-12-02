@@ -1150,7 +1150,100 @@ using binary tree.</p>
     <div class='code'>
       <div class="highlight"><pre><span class="n">res</span>    <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">beers</span><span class="p">,</span> <span class="n">key</span><span class="o">=</span><span class="n">attrgetter</span><span class="p">(</span><span class="s">&#39;alcohol&#39;</span><span class="p">))</span>
 <span class="n">wanted</span> <span class="o">=</span> <span class="s">&quot;[Beer(Kronenbourg,4.2), Beer(1664,6.1), Beer(Guinness,7.5)]&quot;</span>
-<span class="k">assert</span> <span class="nb">str</span><span class="p">(</span><span class="n">res</span><span class="p">)</span> <span class="o">==</span> <span class="n">wanted</span>
+<span class="k">assert</span> <span class="nb">str</span><span class="p">(</span><span class="n">res</span><span class="p">)</span> <span class="o">==</span> <span class="n">wanted</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-72'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-72'>#</a>
+      </div>
+      <ol>
+<li>Grouping Records Together Based on a Field</li>
+</ol>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-73'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-73'>#</a>
+      </div>
+      <p>Group the address with the same date</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span class="n">rows</span> <span class="o">=</span> <span class="p">[</span>
+        <span class="p">{</span><span class="s">&#39;address&#39;</span><span class="p">:</span> <span class="s">&#39;5412 N CLARK&#39;</span><span class="p">,</span> <span class="s">&#39;date&#39;</span><span class="p">:</span> <span class="s">&#39;07/01/2012&#39;</span><span class="p">},</span>
+        <span class="p">{</span><span class="s">&#39;address&#39;</span><span class="p">:</span> <span class="s">&#39;5148 N CLARK&#39;</span><span class="p">,</span> <span class="s">&#39;date&#39;</span><span class="p">:</span> <span class="s">&#39;07/04/2012&#39;</span><span class="p">},</span>
+        <span class="p">{</span><span class="s">&#39;address&#39;</span><span class="p">:</span> <span class="s">&#39;5800 E 58TH&#39;</span><span class="p">,</span> <span class="s">&#39;date&#39;</span><span class="p">:</span> <span class="s">&#39;07/02/2012&#39;</span><span class="p">},</span>
+        <span class="p">{</span><span class="s">&#39;address&#39;</span><span class="p">:</span> <span class="s">&#39;2122 N CLARK&#39;</span><span class="p">,</span> <span class="s">&#39;date&#39;</span><span class="p">:</span> <span class="s">&#39;07/03/2012&#39;</span><span class="p">},</span>
+        <span class="p">{</span><span class="s">&#39;address&#39;</span><span class="p">:</span> <span class="s">&#39;5645 N RAVENSWOOD&#39;</span><span class="p">,</span> <span class="s">&#39;date&#39;</span><span class="p">:</span> <span class="s">&#39;07/02/2012&#39;</span><span class="p">},</span>
+        <span class="p">{</span><span class="s">&#39;address&#39;</span><span class="p">:</span> <span class="s">&#39;1060 W ADDISON&#39;</span><span class="p">,</span> <span class="s">&#39;date&#39;</span><span class="p">:</span> <span class="s">&#39;07/02/2012&#39;</span><span class="p">},</span>
+        <span class="p">{</span><span class="s">&#39;address&#39;</span><span class="p">:</span> <span class="s">&#39;4801 N BROADWAY&#39;</span><span class="p">,</span> <span class="s">&#39;date&#39;</span><span class="p">:</span> <span class="s">&#39;07/01/2012&#39;</span><span class="p">},</span>
+        <span class="p">{</span><span class="s">&#39;address&#39;</span><span class="p">:</span> <span class="s">&#39;1039 W GRANVILLE&#39;</span><span class="p">,</span> <span class="s">&#39;date&#39;</span><span class="p">:</span> <span class="s">&#39;07/04/2012&#39;</span><span class="p">},</span>
+<span class="p">]</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-74'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-74'>#</a>
+      </div>
+      <p>By using groupby</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span class="kn">from</span> <span class="nn">operator</span> <span class="kn">import</span> <span class="n">itemgetter</span>
+<span class="kn">from</span> <span class="nn">itertools</span> <span class="kn">import</span> <span class="n">groupby</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-75'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-75'>#</a>
+      </div>
+      <p>First we need to sort</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span class="n">rows</span><span class="o">.</span><span class="n">sort</span><span class="p">(</span><span class="n">key</span><span class="o">=</span><span class="n">itemgetter</span><span class="p">(</span><span class="s">&#39;date&#39;</span><span class="p">))</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-76'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-76'>#</a>
+      </div>
+      <p>Make group with groupby</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span class="n">by_date</span> <span class="o">=</span> <span class="n">defaultdict</span><span class="p">(</span><span class="nb">list</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">date</span><span class="p">,</span> <span class="n">items</span> <span class="ow">in</span> <span class="n">groupby</span><span class="p">(</span><span class="n">rows</span><span class="p">,</span> <span class="n">key</span><span class="o">=</span><span class="n">itemgetter</span><span class="p">(</span><span class="s">&#39;date&#39;</span><span class="p">)):</span>
+    <span class="n">by_date</span><span class="p">[</span><span class="n">date</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="n">item</span> <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">items</span><span class="p">]</span>
+
+<span class="k">assert</span> <span class="n">by_date</span> <span class="o">==</span> <span class="p">{</span>
+   <span class="s">&#39;07/04/2012&#39;</span><span class="p">:[</span>
+      <span class="p">{</span> <span class="s">&#39;address&#39;</span><span class="p">:</span><span class="s">&#39;5148 N CLARK&#39;</span><span class="p">,</span> <span class="s">&#39;date&#39;</span><span class="p">:</span><span class="s">&#39;07/04/2012&#39;</span> <span class="p">},</span>
+      <span class="p">{</span> <span class="s">&#39;address&#39;</span><span class="p">:</span><span class="s">&#39;1039 W GRANVILLE&#39;</span><span class="p">,</span> <span class="s">&#39;date&#39;</span><span class="p">:</span><span class="s">&#39;07/04/2012&#39;</span> <span class="p">}</span>
+   <span class="p">],</span>
+   <span class="s">&#39;07/03/2012&#39;</span><span class="p">:[</span>
+      <span class="p">{</span> <span class="s">&#39;address&#39;</span><span class="p">:</span><span class="s">&#39;2122 N CLARK&#39;</span><span class="p">,</span> <span class="s">&#39;date&#39;</span><span class="p">:</span><span class="s">&#39;07/03/2012&#39;</span> <span class="p">}</span>
+   <span class="p">],</span>
+   <span class="s">&#39;07/02/2012&#39;</span><span class="p">:[</span>
+      <span class="p">{</span> <span class="s">&#39;address&#39;</span><span class="p">:</span><span class="s">&#39;5800 E 58TH&#39;</span><span class="p">,</span> <span class="s">&#39;date&#39;</span><span class="p">:</span><span class="s">&#39;07/02/2012&#39;</span> <span class="p">},</span>
+      <span class="p">{</span> <span class="s">&#39;address&#39;</span><span class="p">:</span><span class="s">&#39;5645 N RAVENSWOOD&#39;</span><span class="p">,</span> <span class="s">&#39;date&#39;</span><span class="p">:</span><span class="s">&#39;07/02/2012&#39;</span> <span class="p">},</span>
+      <span class="p">{</span> <span class="s">&#39;address&#39;</span><span class="p">:</span><span class="s">&#39;1060 W ADDISON&#39;</span><span class="p">,</span> <span class="s">&#39;date&#39;</span><span class="p">:</span><span class="s">&#39;07/02/2012&#39;</span> <span class="p">}</span>
+   <span class="p">],</span>
+   <span class="s">&#39;07/01/2012&#39;</span><span class="p">:[</span>
+      <span class="p">{</span> <span class="s">&#39;address&#39;</span><span class="p">:</span><span class="s">&#39;5412 N CLARK&#39;</span><span class="p">,</span> <span class="s">&#39;date&#39;</span><span class="p">:</span><span class="s">&#39;07/01/2012&#39;</span> <span class="p">},</span>
+      <span class="p">{</span> <span class="s">&#39;address&#39;</span><span class="p">:</span><span class="s">&#39;4801 N BROADWAY&#39;</span><span class="p">,</span> <span class="s">&#39;date&#39;</span><span class="p">:</span><span class="s">&#39;07/01/2012&#39;</span> <span class="p">}</span>
+   <span class="p">]</span>
+<span class="p">}</span>
 
 </pre></div>
     </div>
