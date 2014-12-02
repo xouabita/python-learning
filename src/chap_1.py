@@ -640,3 +640,22 @@ assert sup_5 == {
     "Guinness": 7.5,
     "1664"    : 6.1,
 }
+
+"""
+18. Mapping Names To Sequence Elements
+--------------------------------------
+"""
+
+# We can use namedtuple
+from collections import namedtuple
+Subscriber = namedtuple('Subscriber', ['addr','joined'])
+sub = Subscriber('xou@rinse.io','2014-09-19')
+assert sub.addr   == 'xou@rinse.io'
+assert sub.joined == '2014-09-19'
+
+# We can't change the attribute, because `namedtuple` is immutable
+try:
+    sub.addr = 'xouabita@gmail.com'
+except AttributeError:
+    sub = sub._replace(addr='xouabita@gmail.com')
+assert sub.addr == 'xouabita@gmail.com'
