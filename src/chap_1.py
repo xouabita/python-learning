@@ -616,3 +616,27 @@ assert ints_list == ['1', '2', '-3', '4', '5']
 # But a list comprehension work also for this example
 ints_compr = [n for n in values if is_int(n)]
 assert ints_compr == ints_list
+
+"""
+17. Extracting a Subset of a Dictionary
+---------------------------------------
+"""
+
+# We want to make a subset for alcohol > 5°
+beers = {
+    "Amstel Light":3.5,
+    "Heineken":5.4,
+    "Heineken Light":3.5,
+    "Guinness":7.5,
+    "1664":6.1,
+    "Kozel Světlý":4,
+    "Kronenbourg ":4.2
+}
+
+# We can use dictionary comprehension
+sup_5 = { key:value for key, value in beers.items() if value > 5 }
+assert sup_5 == {
+    "Heineken": 5.4,
+    "Guinness": 7.5,
+    "1664"    : 6.1,
+}
