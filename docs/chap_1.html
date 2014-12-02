@@ -1393,7 +1393,51 @@ list as result</p>
     <span class="s">&quot;Heineken&quot;</span><span class="p">:</span> <span class="mf">5.4</span><span class="p">,</span>
     <span class="s">&quot;Guinness&quot;</span><span class="p">:</span> <span class="mf">7.5</span><span class="p">,</span>
     <span class="s">&quot;1664&quot;</span>    <span class="p">:</span> <span class="mf">6.1</span><span class="p">,</span>
-<span class="p">}</span>
+<span class="p">}</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-87'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-87'>#</a>
+      </div>
+      <h2>18. Mapping Names To Sequence Elements</h2>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-88'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-88'>#</a>
+      </div>
+      <p>We can use namedtuple</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span class="kn">from</span> <span class="nn">collections</span> <span class="kn">import</span> <span class="n">namedtuple</span>
+<span class="n">Subscriber</span> <span class="o">=</span> <span class="n">namedtuple</span><span class="p">(</span><span class="s">&#39;Subscriber&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s">&#39;addr&#39;</span><span class="p">,</span><span class="s">&#39;joined&#39;</span><span class="p">])</span>
+<span class="n">sub</span> <span class="o">=</span> <span class="n">Subscriber</span><span class="p">(</span><span class="s">&#39;xou@rinse.io&#39;</span><span class="p">,</span><span class="s">&#39;2014-09-19&#39;</span><span class="p">)</span>
+<span class="k">assert</span> <span class="n">sub</span><span class="o">.</span><span class="n">addr</span>   <span class="o">==</span> <span class="s">&#39;xou@rinse.io&#39;</span>
+<span class="k">assert</span> <span class="n">sub</span><span class="o">.</span><span class="n">joined</span> <span class="o">==</span> <span class="s">&#39;2014-09-19&#39;</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-89'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-89'>#</a>
+      </div>
+      <p>We can't change the attribute, because <code>namedtuple</code> is immutable</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span class="k">try</span><span class="p">:</span>
+    <span class="n">sub</span><span class="o">.</span><span class="n">addr</span> <span class="o">=</span> <span class="s">&#39;xouabita@gmail.com&#39;</span>
+<span class="k">except</span> <span class="ne">AttributeError</span><span class="p">:</span>
+    <span class="n">sub</span> <span class="o">=</span> <span class="n">sub</span><span class="o">.</span><span class="n">_replace</span><span class="p">(</span><span class="n">addr</span><span class="p">,</span><span class="s">&#39;xouabita@gmail.com&#39;</span><span class="p">)</span>
+<span class="k">assert</span> <span class="n">sub</span><span class="o">.</span><span class="n">addr</span> <span class="o">==</span> <span class="s">&#39;xouabita@gmail.com&#39;</span>
 
 </pre></div>
     </div>
