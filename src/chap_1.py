@@ -529,3 +529,49 @@ assert str(res) == wanted
 res    = sorted(beers, key=attrgetter('alcohol'))
 wanted = "[Beer(Kronenbourg,4.2), Beer(1664,6.1), Beer(Guinness,7.5)]"
 assert str(res) == wanted
+
+"""
+15. Grouping Records Together Based on a Field
+"""
+
+# Group the address with the same date
+rows = [
+        {'address': '5412 N CLARK', 'date': '07/01/2012'},
+        {'address': '5148 N CLARK', 'date': '07/04/2012'},
+        {'address': '5800 E 58TH', 'date': '07/02/2012'},
+        {'address': '2122 N CLARK', 'date': '07/03/2012'},
+        {'address': '5645 N RAVENSWOOD', 'date': '07/02/2012'},
+        {'address': '1060 W ADDISON', 'date': '07/02/2012'},
+        {'address': '4801 N BROADWAY', 'date': '07/01/2012'},
+        {'address': '1039 W GRANVILLE', 'date': '07/04/2012'},
+]
+# By using groupby
+from operator import itemgetter
+from itertools import groupby
+
+# First we need to sort
+rows.sort(key=itemgetter('date'))
+
+# Make group with groupby
+by_date = defaultdict(list)
+for date, items in groupby(rows, key=itemgetter('date')):
+    by_date[date] = [item for item in items]
+
+assert by_date == {
+   '07/04/2012':[
+      { 'address':'5148 N CLARK', 'date':'07/04/2012' },
+      { 'address':'1039 W GRANVILLE', 'date':'07/04/2012' }
+   ],
+   '07/03/2012':[
+      { 'address':'2122 N CLARK', 'date':'07/03/2012' }
+   ],
+   '07/02/2012':[
+      { 'address':'5800 E 58TH', 'date':'07/02/2012' },
+      { 'address':'5645 N RAVENSWOOD', 'date':'07/02/2012' },
+      { 'address':'1060 W ADDISON', 'date':'07/02/2012' }
+   ],
+   '07/01/2012':[
+      { 'address':'5412 N CLARK', 'date':'07/01/2012' },
+      { 'address':'4801 N BROADWAY', 'date':'07/01/2012' }
+   ]
+}
